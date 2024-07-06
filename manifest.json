@@ -1,22 +1,32 @@
 {
     "manifest_version" : 3,
     "name" : "Korean GitHub",
-    "version" : "0.0.0",
+    "version" : "0.0.1",
     "description" : "Extensions for GitHub Korean Translation",
+    "action" : {
+        "default_title": "GitHub Korean Translater",
+        "default_popup" : "popup/popup.html"
+    },
     "icons" : {
-        "16" : "icon16.png", 
-        "32" : "icon32.png", 
-        "48" : "icon48.png", 
-        "128" : "icon128.png"
+        "16" : "images/icon16.png", 
+        "32" : "images/icon32.png", 
+        "48" : "images/icon48.png", 
+        "128" : "images/icon128.png"
     },
     "content_scripts" : [
         {
             "js" : [
-                "index.js"
+                "scripts/index.js"
             ],
             "matches" : [
                 "https://*.github.com/*"
             ]
         }
+    ],
+    "background" : {
+        "service_worker" : "background.js"
+    },
+    "permissions" : [
+        "declarativeContent"
     ]
 }
